@@ -19,8 +19,11 @@ npm i
 
 - Axios
 - Bootstrap
+
 #### Hooks
+
 - usestate
+
 ### Para ejecución se utiliza 
 
 `npm start`

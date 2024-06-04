@@ -23,7 +23,7 @@ function App() {
       });
   }
 
-  const searchJokes = () => {
+  const searchfact = () => {
     axios.get(`https://api.chucknorris.io/jokes/search?query=${query}`)
       .then((response) => {
         setResults(response.data.result);
@@ -58,7 +58,7 @@ function App() {
               placeholder="Looking for Fact..."
             />
             <br/>
-            <button className="btn btn-secondary" onClick={searchJokes}>Search</button>
+            <button className="btn btn-secondary" onClick={searchfact}>Search</button>
             <br /><br />
             {results.length > 0 && (
               <div className="table-responsive">
@@ -72,13 +72,13 @@ function App() {
                     </tr>
                   </thead>
                   <tbody>
-                    {results.map((joke) => (
-                      <tr key={joke.id}>
-                        <td>{joke.value}</td>
-                        <td>{joke.created_at}</td>
-                        <td>{joke.categories.join(', ')}</td>
+                    {results.map((fact) => (
+                      <tr key={fact.id}>
+                        <td>{fact.value}</td>
+                        <td>{fact.created_at}</td>
+                        <td>{fact.categories.join(', ')}</td>
                         <td>
-                          <button className="btn btn-success" onClick={() => addToFavorites(joke)}>Like!</button>
+                          <button className="btn btn-success" onClick={() => addToFavorites(fact)}>Like!</button>
                         </td>
                       </tr>
                     ))}
@@ -106,13 +106,13 @@ function App() {
                     </tr>
                   </thead>
                   <tbody>
-                    {favorites.map((joke, index) => (
+                    {favorites.map((fact, index) => (
                       <tr key={index}>
-                        <td>{joke.value}</td>
-                        <td>{joke.created_at}</td>
-                        <td>{joke.categories.join(', ')}</td>
+                        <td>{fact.value}</td>
+                        <td>{fact.created_at}</td>
+                        <td>{fact.categories.join(', ')}</td>
                         <td>
-                          <button className="btn btn-danger" onClick={() => removeFromFavorites(joke)}>Delete</button>
+                          <button className="btn btn-danger" onClick={() => removeFromFavorites(fact)}>Delete</button>
                         </td>
                       </tr>
                     ))}
